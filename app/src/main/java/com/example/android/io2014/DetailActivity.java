@@ -178,6 +178,7 @@ public class DetailActivity extends Activity {
     private void colorRipple(int id, int bgColor, int tintColor) {
         View buttonView = findViewById(id);
 
+
         RippleDrawable ripple = (RippleDrawable) buttonView.getBackground();
         GradientDrawable rippleBackground = (GradientDrawable) ripple.getDrawable(0);
         rippleBackground.setColor(bgColor);

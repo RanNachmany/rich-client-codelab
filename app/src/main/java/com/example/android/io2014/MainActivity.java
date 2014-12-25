@@ -87,8 +87,7 @@ public class MainActivity extends Activity {
         sPhotoCache.put(intent.getIntExtra("photo", -1),
                 ((BitmapDrawable) hero.getDrawable()).getBitmap());
 
-        ActivityOptions options =
-                ActivityOptions.makeSceneTransitionAnimation(this, hero, "photo_hero");
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, hero, "photo_hero");
         startActivity(intent, options.toBundle());
     }
 }

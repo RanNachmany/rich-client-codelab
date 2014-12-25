@@ -50,7 +50,7 @@
                 android:src="@drawable/ic_info"
 
                 android:elevation="@dimen/button_elevation"
-                android:stateListAnimator="@anim/button_raise"
+                android:stateListAnimator="@anim/button_raise_scale"
 
                 android:onClick="showInformation"
 
@@ -71,7 +71,7 @@
                 android:src="@drawable/ic_star"
 
                 android:elevation="4dp"
-                android:stateListAnimator="@anim/button_raise"
+                android:stateListAnimator="@anim/button_raise_scale"
 
                 android:onClick="showStar"
 
