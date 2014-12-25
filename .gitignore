@@ -34,3 +34,13 @@ proguard/
 # Misc
 .DS_Store
 =======
+
+*.orig
+
+
+
+.gitignore.BACKUP.51535.gitignore
+
+.gitignore.BASE.51535.gitignore
+
+*.gitignore
