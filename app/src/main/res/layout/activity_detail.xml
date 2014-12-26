@@ -19,7 +19,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
-            android:contentDescription="@string/photo_description" />
+            android:contentDescription="@string/photo_description"
+            android:scaleX="1.1"
+            android:scaleY="1.1"
+            />
 
         <TextView
             android:id="@+id/title"
