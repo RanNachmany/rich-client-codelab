@@ -16,13 +16,12 @@
 
         android:orientation="vertical">
 
-        <com.example.android.io2014.ui.CardFrameLayout
+        <FrameLayout
             style="@style/Card">
 
             <ImageView
                 style="@style/CardPhoto"
                 android:id="@+id/photo"
-                android:transitionName="photo1"
                 android:src="@drawable/photo1" />
 
             <TextView
@@ -30,15 +29,13 @@
                 android:id="@+id/show_photo_1"
                 android:text="Pacifica Pier" />
 
-        </com.example.android.io2014.ui.CardFrameLayout>
-
-        <com.example.android.io2014.ui.CardFrameLayout
+        </FrameLayout>
+        <FrameLayout
             style="@style/Card">
 
             <ImageView
                 style="@style/CardPhoto"
                 android:id="@id/photo"
-                android:transitionName="photo2"
                 android:src="@drawable/photo2" />
 
             <TextView
@@ -46,9 +43,8 @@
                 android:id="@+id/show_photo_2"
                 android:text="Pink Flamingo" />
 
-        </com.example.android.io2014.ui.CardFrameLayout>
-
-        <com.example.android.io2014.ui.CardFrameLayout
+        </FrameLayout>
+        <FrameLayout
             style="@style/Card">
 
             <ImageView
@@ -62,10 +58,10 @@
                 android:id="@+id/show_photo_3"
                 android:text="Antelope Canyon" />
 
-        </com.example.android.io2014.ui.CardFrameLayout>
-
-        <com.example.android.io2014.ui.CardFrameLayout
-            style="@style/Card">
+        </FrameLayout>
+        <FrameLayout
+            style="@style/Card"
+            android:layout_width="match_parent">
 
             <ImageView
                 style="@style/CardPhoto"
@@ -78,8 +74,7 @@
                 android:id="@+id/show_photo_4"
                 android:text="Lone Pine" />
 
-        </com.example.android.io2014.ui.CardFrameLayout>
-
+        </FrameLayout>
     </LinearLayout>
 
 </ScrollView>

@@ -43,7 +43,7 @@ public class CardFrameLayout extends FrameLayout {
         final int vw = w;
         final int vh = h;
 
-        final ViewOutlineProvider vop = new ViewOutlineProvider() {
+        /*final ViewOutlineProvider vop = new ViewOutlineProvider() {
             @Override
             public void getOutline(View view, Outline outline) {
                 outline.setRoundRect(0, 0, vw, vh, radius);
@@ -51,7 +51,7 @@ public class CardFrameLayout extends FrameLayout {
         };
 
         setOutlineProvider(vop);
-        setClipToOutline(true);
+        setClipToOutline(true);*/
     }
 
 

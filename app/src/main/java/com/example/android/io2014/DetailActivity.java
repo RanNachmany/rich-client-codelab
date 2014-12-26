@@ -27,6 +27,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.graphics.Palette;
 import android.transition.Transition;
 import android.util.DisplayMetrics;
@@ -42,13 +43,8 @@ import android.widget.TextView;
 
 import com.example.android.io2014.ui.AnimatedPathView;
 import com.example.android.io2014.ui.TransitionAdapter;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
-public class DetailActivity extends Activity {
+public class DetailActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,13 +54,13 @@ public class DetailActivity extends Activity {
 
         colorize(photo);
 
-        setupMap();
+//        setupMap();
         setupText();
 
-        setOutlines(R.id.star, R.id.info);
-        applySystemWindowsBottomInset(R.id.container);
+//        setOutlines(R.id.star, R.id.info);
+//        applySystemWindowsBottomInset(R.id.container);
 
-        getWindow().getEnterTransition().addListener(new TransitionAdapter() {
+        /*getWindow().getEnterTransition().addListener(new TransitionAdapter() {
             @Override
             public void onTransitionEnd(Transition transition) {
                 ImageView hero = (ImageView) findViewById(R.id.photo);
@@ -77,13 +73,13 @@ public class DetailActivity extends Activity {
 
                 getWindow().getEnterTransition().removeListener(this);
             }
-        });
+        });*/
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         ImageView hero = (ImageView) findViewById(R.id.photo);
-        ObjectAnimator color = ObjectAnimator.ofArgb(hero.getDrawable(), "tint",
+        *//*ObjectAnimator color = ObjectAnimator.ofArgb(hero.getDrawable(), "tint",
                 0, getResources().getColor(R.color.photo_tint));
         color.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -91,11 +87,11 @@ public class DetailActivity extends Activity {
                 finishAfterTransition();
             }
         });
-        color.start();
+        color.start();*//*
 
         findViewById(R.id.info).animate().alpha(0.0f);
         findViewById(R.id.star).animate().alpha(0.0f);
-    }
+    }*/
 
     private void setupText() {
         TextView titleView = (TextView) findViewById(R.id.title);
@@ -106,7 +102,7 @@ public class DetailActivity extends Activity {
     }
 
     private void setupMap() {
-        GoogleMap map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
+        /*GoogleMap map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 
         double lat = getIntent().getDoubleExtra("lat", 37.6329946);
         double lng = getIntent().getDoubleExtra("lng", -122.4938344);
@@ -114,10 +110,10 @@ public class DetailActivity extends Activity {
 
         LatLng position = new LatLng(lat, lng);
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(position, zoom));
-        map.addMarker(new MarkerOptions().position(position));
+        map.addMarker(new MarkerOptions().position(position));*/
     }
 
-    private void setOutlines(int star, int info) {
+    /*private void setOutlines(int star, int info) {
         final int size = getResources().getDimensionPixelSize(R.dimen.floating_button_size);
 
         final ViewOutlineProvider vop = new ViewOutlineProvider() {
@@ -129,9 +125,9 @@ public class DetailActivity extends Activity {
 
         findViewById(star).setOutlineProvider(vop);
         findViewById(info).setOutlineProvider(vop);
-    }
+    }*/
 
-    private void applySystemWindowsBottomInset(int container) {
+  /*  private void applySystemWindowsBottomInset(int container) {
         View containerView = findViewById(container);
         containerView.setFitsSystemWindows(true);
         containerView.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
@@ -146,11 +142,11 @@ public class DetailActivity extends Activity {
                 return windowInsets.consumeSystemWindowInsets();
             }
         });
-    }
+    }*/
 
     private void colorize(Bitmap photo) {
-        Palette palette = Palette.generate(photo);
-        applyPalette(palette);
+//        Palette palette = Palette.generate(photo);
+//        applyPalette(palette);
     }
 
     private void applyPalette(Palette palette) {
@@ -162,11 +158,11 @@ public class DetailActivity extends Activity {
         TextView descriptionView = (TextView) findViewById(R.id.description);
         descriptionView.setTextColor(palette.getLightVibrantColor().getRgb());
 
-        colorRipple(R.id.info, palette.getDarkMutedColor().getRgb(),
+        /*colorRipple(R.id.info, palette.getDarkMutedColor().getRgb(),
                 palette.getDarkVibrantColor().getRgb());
         colorRipple(R.id.star, palette.getMutedColor().getRgb(),
                 palette.getVibrantColor().getRgb());
-
+*/
         View infoView = findViewById(R.id.information_container);
         infoView.setBackgroundColor(palette.getLightMutedColor().getRgb());
 
@@ -175,7 +171,7 @@ public class DetailActivity extends Activity {
         star.setStrokeColor(palette.getLightVibrantColor().getRgb());
     }
 
-    private void colorRipple(int id, int bgColor, int tintColor) {
+  /*  private void colorRipple(int id, int bgColor, int tintColor) {
         View buttonView = findViewById(id);
 
 
@@ -185,7 +181,7 @@ public class DetailActivity extends Activity {
 
         ripple.setColor(ColorStateList.valueOf(tintColor));
     }
-
+*/
     private Bitmap setupPhoto(int resource) {
         Bitmap bitmap = MainActivity.sPhotoCache.get(resource);
         ((ImageView) findViewById(R.id.photo)).setImageBitmap(bitmap);
@@ -220,7 +216,7 @@ public class DetailActivity extends Activity {
     }
 
     private void toggleInformationView(View view) {
-        final View infoContainer = findViewById(R.id.information_container);
+       /* final View infoContainer = findViewById(R.id.information_container);
 
         int cx = (view.getLeft() + view.getRight()) / 2;
         int cy = (view.getTop() + view.getBottom()) / 2;
@@ -244,7 +240,7 @@ public class DetailActivity extends Activity {
             reveal.setInterpolator(new DecelerateInterpolator(2.0f));
         }
         reveal.setDuration(600);
-        reveal.start();
+        reveal.start();*/
     }
 
     @Override
