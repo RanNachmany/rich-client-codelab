@@ -4,16 +4,12 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">200dp</item>
         <item name="android:layout_marginBottom">16dp</item>
-
-        <item name="android:background">@drawable/card_background</item>
+        <item name="android:background">@null</item>
     </style>
 
-    <!--<item name="android:tint">@color/photo_tint</item>-->
     <style name="CardPhoto">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
-
-
         <item name="android:scaleType">centerCrop</item>
     </style>
 
