@@ -16,8 +16,6 @@
 
 package com.example.android.io2014;
 
-import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -89,8 +87,6 @@ public class MainActivity extends ActionBarActivity {
             sPhotoCache.put(intent.getIntExtra("photo", -1),
                     ((BitmapDrawable) hero.getDrawable()).getBitmap());
         }
-       /* ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, hero, "photo_hero");
-        startActivity(intent, options.toBundle());*/
         startActivity(intent);
     }
 }

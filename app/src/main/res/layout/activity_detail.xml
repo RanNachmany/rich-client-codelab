@@ -1,117 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
-    xmlns:io="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.io2014.DetailActivity"
-
     android:id="@+id/content"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/container"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:orientation="vertical">
 
-        <FrameLayout
+
+        <ImageView
+            android:id="@+id/photo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/photo"
-                android:transitionName="photo_hero"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:tint="@color/photo_tint"
-                android:scaleType="centerCrop"
-
-                android:contentDescription="@string/photo_description" />
-
-            <ImageButton
-                android:id="@+id/info"
-                android:layout_width="@dimen/floating_button_size"
-                android:layout_height="@dimen/floating_button_size"
-
-                android:layout_gravity="bottom|end"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-
-                android:alpha="0.0"
-
-                android:src="@drawable/ic_info"
-
-                android:onClick="showInformation"
-
-                android:contentDescription="@string/info_button_description" />
-
-            <ImageButton
-                android:id="@+id/star"
-                android:layout_width="@dimen/floating_button_size"
-                android:layout_height="@dimen/floating_button_size"
-
-                android:layout_gravity="bottom|start"
-                android:layout_marginLeft="16dp"
-                android:layout_marginBottom="16dp"
-
-                android:alpha="0.0"
-
-                android:src="@drawable/ic_star"
-
-                android:onClick="showStar"
-
-                android:contentDescription="@string/star_button_description" />
-
-            <FrameLayout
-                android:id="@+id/information_container"
-
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-                android:visibility="invisible">
-
-               <!-- <fragment
-                    android:id="@+id/map"
-
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-
-                    android:name="com.google.android.gms.maps.MapFragment"
-
-                    tools:ignore="MissingPrefix"
-                    map:uiRotateGestures="false"
-                    map:uiScrollGestures="false"
-                    map:uiTiltGestures="false"
-                    map:uiZoomControls="false"
-                    map:uiZoomGestures="false" />-->
-
-            </FrameLayout>
-
-            <com.example.android.io2014.ui.AnimatedPathView
-                android:id="@+id/star_container"
-
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-
-                android:visibility="invisible"
-
-                io:phase="1.0"
-                io:duration="1000"
-                io:fillDuration="500"
-                io:fillOffset="400"
-                io:strokeWidth="6dp"
-                io:strokeColor="#ffffffff"
-                io:fillColor="#ffffffff"
-                io:svgPath="@raw/star" />
-
-        </FrameLayout>
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/photo_description" />
 
         <TextView
             android:id="@+id/title"
