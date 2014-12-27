@@ -17,9 +17,11 @@
 package com.example.android.io2014;
 
 import android.animation.Animator;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,7 +43,8 @@ public class DetailActivity extends ActionBarActivity {
         setContentView(R.layout.activity_detail);
 
         mPhoto = findViewById(R.id.photo);
-        setupPhoto(getIntent().getIntExtra("photo", R.drawable.photo1));
+        Bitmap bmp = setupPhoto(getIntent().getIntExtra("photo", R.drawable.photo1));
+        colorize(bmp);
 
         setupText();
         setTitle("");
@@ -106,7 +109,7 @@ public class DetailActivity extends ActionBarActivity {
         mPhoto.setTranslationX(mLeftDelta/2);
         mPhoto.setTranslationY(mTopDelta);
 
-        mPhoto.animate().scaleX(1f).scaleY(1f).translationX(0).translationY(0).setListener(new Animator.AnimatorListener() {
+        mPhoto.animate().scaleX(1.1f).scaleY(1.1f).translationX(0).translationY(0).setListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
 
@@ -142,6 +145,25 @@ public class DetailActivity extends ActionBarActivity {
         Bitmap bitmap = MainActivity.sPhotoCache.get(resource);
         ((ImageView) findViewById(R.id.photo)).setImageBitmap(bitmap);
         return bitmap;
+    }
+
+    private void colorize(Bitmap photo) {
+        Palette palette = Palette.generate(photo);
+        applyPalette(palette);
+    }
+
+    public void applyPalette(Palette palette) {
+        Resources res = getResources();
+
+        View container = findViewById(R.id.container);
+        container.setBackgroundColor(palette.getDarkMutedColor().getRgb());
+
+        TextView titleView = (TextView) findViewById(R.id.title);
+        titleView.setTextColor(palette.getVibrantColor().getRgb());
+
+        TextView descriptionView = (TextView) findViewById(R.id.description);
+        descriptionView.setTextColor(palette.getLightVibrantColor().getRgb());
+
     }
 
     @Override
