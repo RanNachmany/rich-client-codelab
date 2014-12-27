@@ -1,9 +1,13 @@
 package com.example.android.io2014;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.LightingColorFilter;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Shader;
@@ -11,6 +15,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.ImageView;
 
 /**
@@ -56,13 +61,20 @@ public class RoundedCornerImageView extends ImageView {
 
         tmp.recycle();
 
+//        Drawable d;
+//        d.setTint(2);
+        int tint = 4;
         mPaint = new Paint();
+
+        ColorFilter filter = new LightingColorFilter(getResources().getColor(R.color.photo_tint),0);
+        mPaint.setColorFilter(filter);
+
     }
 
     @Override
     protected void onDraw(@NonNull Canvas canvas) {
         if (null != mBitmap) {
-            canvas.drawBitmap(mBitmap,0,0,mPaint);
+            canvas.drawBitmap(mBitmap, 0, 0, mPaint);
         }
         else {
             super.onDraw(canvas);
