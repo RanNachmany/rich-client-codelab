@@ -20,7 +20,9 @@ import android.animation.Animator;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
@@ -42,6 +44,7 @@ public class DetailActivity extends ActionBarActivity {
         setupPhoto(getIntent().getIntExtra("photo", R.drawable.photo1));
 
         setupText();
+        setTitle("");
 
         Bundle b = getIntent().getExtras();
 
@@ -74,6 +77,25 @@ public class DetailActivity extends ActionBarActivity {
                 return false;
             }
         });
+
+        Toolbar t = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(t);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
     }
 
     private void runEnterAnimation() {
@@ -81,10 +103,10 @@ public class DetailActivity extends ActionBarActivity {
         mPhoto.setPivotY(0);
         mPhoto.setScaleX(mScaleX);
         mPhoto.setScaleY(mScaleY);
-        mPhoto.setTranslationX(mLeftDelta);
+        mPhoto.setTranslationX(mLeftDelta/2);
         mPhoto.setTranslationY(mTopDelta);
 
-        mPhoto.animate().scaleX(1.1f).scaleY(1.1f).translationX(0).translationY(0).setListener(new Animator.AnimatorListener() {
+        mPhoto.animate().scaleX(1f).scaleY(1f).translationX(0).translationY(0).setListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
 
@@ -92,7 +114,7 @@ public class DetailActivity extends ActionBarActivity {
 
             @Override
             public void onAnimationEnd(Animator animation) {
-
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             }
 
             @Override
