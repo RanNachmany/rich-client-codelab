@@ -54,10 +54,8 @@
     <style name="DetailTheme" parent="MainTheme">
         <item name="android:actionBarStyle">@style/DetailActionBar</item>
         <item name="android:windowActionBarOverlay">false</item>
-        <!--<item name="android:windowContentTransitions">true</item>-->
-        <item name="android:windowContentOverlay">@null</item>
-        <!--<item name="android:windowTranslucentStatus">true</item>-->
-        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+        <item name="android:windowIsTranslucent">true</item> 
+        <item name="android:windowBackground">@android:color/transparent</item> 
     </style>
 
     <style name="DetailActionBar" parent="Widget.AppCompat.Light.ActionBar">
