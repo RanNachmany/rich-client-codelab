@@ -1,32 +1,27 @@
-Material Witness
+Rich client codelab
 ================
 
-A Google I/O 2014 demo written by Romain Guy [http://www.curious-creature.org](http://www.curious-creature.org)
-
-Material Witness is a sample application for the new Material Design APIs introduced in the Android L Preview SDK:
+Romain Guy demoed at Googel I/O 2014 a "material witness" app - a sample application for the new Material Design APIs introduced in the Android L SDK.
+In this code lab we will take a subset of the original app and backport it to ICS. We will implement 
 
 * Custom theme colors
 * Dynamic palette
-* Circular reveal
 * Activity transitions
 
-And a few other things such as colored status and navigation bars, path tracing, etc.
 
-The complete video of the Google I/O 2014 talk detailing how this application works can be found on [YouTube](https://www.youtube.com/watch?v=97SWYiRtF0Y&feature=youtu.be).
-
-![Material Witness](art/MaterialWitness1.png)
-
-![Material Witness](art/MaterialWitness2.png)
-
-How to use this source code
+How to use this code lab
 ===========================
 
-The google-io-2014 project can be opened in Android Studio 0.8.14 or later. It contains a single module
+The project can be opened in Android Studio 0.8.0 or later. It contains a single module
 called **app** in the `app/` folder.
 
-The project can be compiled from the command line using Gradle.
+Branches: 
+* Stage_0 - initial branch containing Master-Detail app. 
+* Stage_1 - Adding color tint to images. 
+* Stage_2 - Using rounded corner images.
+* Stage_3 - Implementing shared element activity transition. 
+* Stage_4 - Using Pallate library to dynamically extract colors from content. 
 
-The actual source code and resources can be found in `app/src/main/`. The only dependencies are in `app/lib/`.
 
 Source code license
 ===================
@@ -35,8 +30,4 @@ This project is subject to the [Apache License, Version 2.0](http://apache.org/l
 
 Library licenses
 ================
-
-__androidsvg-1.2.0__ is subject to the [Apache License, Version 2.0](http://apache.org/licenses/LICENSE-2.0.html).
-More information on [the official web site](https://code.google.com/p/androidsvg/).
-
 __android-support-v7-palette__ is subject to the [Apache License, Version 2.0](http://apache.org/licenses/LICENSE-2.0.html).
