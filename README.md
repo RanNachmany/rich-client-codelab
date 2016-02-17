@@ -1,7 +1,7 @@
 Rich client codelab
 ================
 
-Romain Guy demoed at Googel I/O 2014 a "material witness" app - a sample application for the new Material Design APIs introduced in the Android L SDK.
+Romain Guy demoed at Google I/O 2014 a "material witness" app - a sample application for the new Material Design APIs introduced in the Android L SDK.
 In this code lab we will take a subset of the original app and backport it to ICS. We will implement 
 
 * Custom theme colors
